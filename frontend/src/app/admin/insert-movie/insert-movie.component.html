@@ -1,0 +1,67 @@
+<mat-card class="linkCard">
+    <mat-card-title>
+        <h3><a routerLink="/admin/movieList">Movie List</a>/Insert Movie</h3>
+    </mat-card-title>
+</mat-card>
+<div>
+    <mat-card class="cardSizePosition">
+        <mat-card-title>
+            <u>
+                <h2>Insert Movie</h2>
+            </u>
+        </mat-card-title>
+        <div>
+            <form>
+                <div class="photo">
+                    <img [src]="imageSrc" *ngIf="imageSrc" alt="image" width="300px" height="300px" /><br><br>
+                    <input hidden="true" #fileInput accept="image/*" type="file" (change)="onFileSelect($event)"  [formControl]='image' required/>
+                    <button class="uploadBtn" mat-raised-button color="primary" (click)="fileInput.click()">
+                        Upload Image
+                    </button>
+                    <mat-error *ngIf="image.hasError('required')"> required*</mat-error>
+
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Movie Name</mat-label>
+                        <input matInput placeholder="" [formControl]="movieName" required>
+                        <mat-error *ngIf="movieName.hasError('required')"> required*</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Movie Description</mat-label>
+                        <input matInput name="movieDescription" id="movieDescription" type="text"
+                            [formControl]="movieDescription" required>
+                        <mat-error *ngIf="movieDescription.hasError('required')"> required*</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Duration</mat-label>
+                        <input matInput name="duration" id="duration" type="text" type="number" min=0
+                            [formControl]="duration" required>
+                        <mat-error *ngIf="duration.hasError('required')"> required*</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ticket Price (RM)</mat-label>
+                        <input matInput name="ticketPrice" id="ticketPrice" type="text" type="number" min=0
+                            [formControl]="ticketPrice" required>
+                        <mat-error *ngIf="ticketPrice.hasError('required')"> required*</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <button type="submit" mat-raised-button color="primary" class="insertBtn" (click)='onSubmit()'>
+                        Insert
+                    </button>
+                    <button class="backBtn" mat-raised-button color="warn" (click)='onBack()'>
+                        Back
+                    </button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </mat-card>
+</div>

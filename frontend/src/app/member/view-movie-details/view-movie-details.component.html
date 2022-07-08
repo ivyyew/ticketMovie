@@ -1,0 +1,82 @@
+<mat-card class="linkCard">
+    <mat-card-title>
+        <h3><a routerLink="/member/movie">Movie</a>/Book Movie({{movie?.movieName}})</h3>
+    </mat-card-title>
+</mat-card>
+
+
+<mat-grid-list [cols]="breakpoint">
+    <mat-grid-tile [class.fullWidth]="breakpoint == 1" class="g1">
+        <mat-card-content>
+            <div class="image">
+                <img [src]="movie?.imagePath" alt="movie image" height="280px" width="230px">
+            </div>
+        </mat-card-content>
+    </mat-grid-tile>
+    <mat-grid-tile [class.fullWidth]="breakpoint == 1" class="g2">
+        <!-- <div class="content"> -->
+        <mat-card-content class="design">
+            <mat-card-title>
+                <h1>{{movie?.movieName}}</h1>
+            </mat-card-title>
+            <hr>
+            <p>Description: {{movie?.movieDescription}}</p>
+            <p>Duration: {{movie?.duration}} minutes</p>
+            <p>Ticket Price: RM{{movie?.ticketPrice|number:'1.2-2'}}</p>
+        </mat-card-content>
+        <!-- </div> -->
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="cardSizePosition">
+    <mat-card-title>
+        <h2>Please select your ticket</h2>
+    </mat-card-title>
+    <div class="bookingForm">
+        <form>
+            <div class="center">
+                <mat-form-field appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" [formControl]="bookingDate"
+                        required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="bookingDate.hasError('required')"> Please select a date*</mat-error>
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="center">
+                <mat-form-field appearance="fill">
+                    <mat-label>Time</mat-label>
+                    <select matNativeControl required [formControl]="bookingTime">
+                        <option value="9.00a.m.">9.00a.m.</option>
+                        <option value="12.00p.m.">12.00p.m.</option>
+                        <option value="3.00p.m.">3.00p.m.</option>
+                        <option value="6.00p.m.">6.00p.m.</option>
+                        <option value="9.00p.m.">9.00p.m.</option>
+                    </select>
+                    <mat-error *ngIf="bookingTime.hasError('required')">
+                        Please select a time
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <br>
+            <div class="center">
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input type="number" min="1" max="50" matInput [formControl]="quantity" required>
+                    <mat-error *ngIf="quantity.hasError('required')"> Please enter the quantity*</mat-error>
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="center">
+                <button type="submit" mat-raised-button color="primary" class="bookingBtn" (click)='onSubmit()'>
+                    Book
+                </button>
+            </div>
+            <br>
+        </form>
+    </div>
+</mat-card>

@@ -1,0 +1,2 @@
+Environment setting
+The project need to place in htdocs, then go to environment.ts, change the path

@@ -1,0 +1,25 @@
+<mat-card class="linkCard">
+    <mat-card-title>
+        <h3><a routerLink="/member/movie">Movie</a>/<a class="link" (click)='onBack()'>Book
+                Movie({{movieName}})</a>/Book Movie Ticket - Successful</h3>
+    </mat-card-title>
+</mat-card>
+<mat-card class="cardSizePosition">
+
+    <mat-card-title>
+        <h2>Book Movie Ticket - Successful</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <div class="content">
+            <p>Movie Name : {{movieName}}</p>
+            <p>Booking Date : {{bookingDate}}</p>
+            <p>Booking Time : {{bookingTime}}</p>
+            <p>Ticket Price : RM{{ticketPrice|number:'1.2-2'}}</p>
+            <p>Quantity : {{quantity}}</p>
+            <p>Total Price : RM{{total|number:'1.2-2'}}</p>
+            <p>Status : {{status}}</p>
+        </div>
+
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,46 @@
+<a href="#"></a>
+<body>
+  <mat-toolbar class="toolbar" *ngIf="!(isLoggedIn$ | async)">
+    <a routerLink = "home" class="linkStyle">IMAX CINEMA</a>
+  
+    <a class="linkStyle" routerLink ="home" routerLinkActive = "active">Home</a>
+    <span class="example-spacer"></span>
+    <a mat-raised-button id="loginButton" class="linkStyle" routerLink = "login" >Login</a>
+    <a mat-raised-button color="primary" id="registerButton" class="linkStyle" routerLink = "register">Register</a>
+  </mat-toolbar>
+<ng-container *ngIf = "isLoggedIn$ | async">
+  <!-- member toolbar-->
+  <mat-toolbar class="toolbar" *ngIf = "!(userType$ | async)">
+    <a routerLink = "memberHome" class="linkStyle">IMAX CINEMA</a>
+
+    <a class="linkStyle" routerLink ="memberHome" routerLinkActive = "active">Home</a>
+    <a class="linkStyle" routerLink ="member/profile" routerLinkActive = "active">Profile</a>
+    <a class="linkStyle" routerLink ="member/movie" routerLinkActive = "active">Movie</a>
+    <a class="linkStyle" routerLink ="member/booking" routerLinkActive = "active">Ticket Booking</a>
+    <span class="example-spacer"></span>
+
+    <a mat-raised-button color="warn" id="logoutButton" class="linkStyle" (click)="onLogout()">Logout</a>
+  </mat-toolbar>
+
+  <!-- admin toolbar -->
+  <mat-toolbar class="toolbar" *ngIf = "userType$ | async">
+    <a routerLink = "adminHome" class="linkStyle">IMAX CINEMA</a>
+
+    <a class="linkStyle" routerLink ="adminHome" routerLinkActive = "active">Home</a>
+    <a class="linkStyle" routerLink ="admin/movieList" routerLinkActive = "active">Movie</a>
+    <a class="linkStyle" routerLink ="admin/bookingList" routerLinkActive = "active">Booking</a>
+    <span class="example-spacer"></span>
+   
+    <a mat-raised-button color="warn" id="logoutButton" class="linkStyle" (click)="onLogout()">Logout</a>
+  </mat-toolbar>
+</ng-container>
+  
+
+
+<router-outlet></router-outlet> 
+<br><br>
+
+<!-- <mat-toolbar class="toolbar bottom">
+  <span class="footer">Copyright <mat-icon class="footer">copyright</mat-icon>2021, IMAX CINEMA</span>
+</mat-toolbar> -->
+</body>

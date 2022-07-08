@@ -1,0 +1,29 @@
+body{
+    height: 100%;
+}
+mat-card{
+    margin-top: 200px;
+    margin-bottom: 180px;
+}
+mat-card-title{
+    text-align: center;
+}
+mat-form-field{
+    width: 90%;
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cardSizePosition{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loginBtn{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}

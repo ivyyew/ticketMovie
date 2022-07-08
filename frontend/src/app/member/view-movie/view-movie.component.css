@@ -1,0 +1,25 @@
+.cardSizePosition{
+    /* width: 90%; */
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    background-color: black;
+    height: 100%;
+    padding-bottom: 1100px;
+}
+mat-card{
+    margin-top: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+    color: orange;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}

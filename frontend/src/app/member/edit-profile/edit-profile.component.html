@@ -1,0 +1,55 @@
+<div>
+    <mat-card class="cardSizePosition">
+        <div>
+            <div class="imgContainer">
+                <img
+                    [src] ="user?.photo || '../../../assets/img/default.png'"
+                    alt="profile img"
+                    width="200px"
+                    height="200px"
+                />
+                <br>
+                <button
+                class="change-profile-btn"
+                mat-raised-button
+                color="primary"
+                (click)="updateProfileImage()"
+              >
+                Change Profile Image
+              </button>
+            </div>
+            <br>
+            <form>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                    <mat-label>Login</mat-label>
+                    <input matInput  [formControl]="login" readonly>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput [formControl]="password" readonly>
+                    <button mat-icon-button matSuffix (click)='updatePass()'>
+                        <mat-icon> vpn_key</mat-icon>
+                    </button>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput placeholder= "Enter full name" [formControl]="fullname" required>
+                        <mat-error *ngIf="fullname.hasError('required')"> Full name is required*</mat-error>
+                    </mat-form-field>
+                </div>
+                <br><br><br>
+                <div class="center">
+                    <button type="submit" mat-raised-button color="primary" class="updateBtn" (click)='onSubmit()'>
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </mat-card>
+</div>
+

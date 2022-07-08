@@ -1,0 +1,22 @@
+mat-card{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 140px;
+}
+.imgContainer{
+    text-align: center;
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    text-align: center;
+}
+button{
+    background-color: rgb(78, 196, 78);
+    color: white;
+}

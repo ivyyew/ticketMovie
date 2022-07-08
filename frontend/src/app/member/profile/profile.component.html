@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-title>
+      <h1>User Profile</h1>
+  </mat-card-title>
+  <div class="imgContainer">
+      <img
+          [src] ="user?.photo || '../../../assets/img/default.png'"
+          alt="profile img"
+          width="200px"
+          height="200px"
+      />
+  </div>
+  <br><br>
+  
+  <div class="center">
+      <mat-form-field appearance="outline">
+          <mat-label>Login</mat-label>
+              <input
+              matInput
+              placeholder="login"
+              disabled="true"
+              [value]="user?.login"
+              />
+      </mat-form-field>
+  </div>
+  
+  <br>
+  <div class="center">
+      <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+              <input
+              matInput
+              placeholder="full name"
+              disabled="true"
+              [value]="user?.fullname"
+              />
+      </mat-form-field>
+  </div>
+  <br>
+  <div class="center">
+     <button mat-raised-button (click)='updateProfile()'>
+          Update Profile
+      </button> 
+  </div>
+  
+
+</mat-card>

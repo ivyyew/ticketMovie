@@ -1,0 +1,61 @@
+<mat-card class="linkCard">
+    <mat-card-title>
+        <h3><a routerLink = "/admin/bookingList">Booking List</a>/View Booking History</h3> 
+    </mat-card-title>
+</mat-card>
+
+<mat-card class="card">
+    <mat-card-title>
+      <h1>Booking History List</h1>
+    </mat-card-title>
+    <br><br>
+    <mat-card-content>
+      <table mat-table [dataSource]="books" class="mat-elevation-z10">
+
+        <ng-container matColumnDef="bookingID">
+          <th mat-header-cell *matHeaderCellDef>BookingID</th>
+          <td mat-cell *matCellDef="let element">{{ element.bookingID }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="memberName">
+            <th mat-header-cell *matHeaderCellDef>Member Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.fullname }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="movieName">
+            <th mat-header-cell *matHeaderCellDef>Movie Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.movieName}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalPrice">
+            <th mat-header-cell *matHeaderCellDef>Total Price(RM)</th>
+            <td mat-cell *matCellDef="let element">{{ element.total.toFixed(2) }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="ticketDate">
+            <th mat-header-cell *matHeaderCellDef>Ticket Date</th>
+            <td mat-cell *matCellDef="let element">{{ element.bookingDate }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="ticketTime">
+            <th mat-header-cell *matHeaderCellDef>Ticket Time</th>
+            <td mat-cell *matCellDef="let element">{{ element.bookingTime }}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <br />
+    </mat-card-content>
+  </mat-card>

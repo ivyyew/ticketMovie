@@ -1,0 +1,65 @@
+<mat-card class="linkCard">
+    <mat-card-title>
+        <h1>Movie List</h1>
+    </mat-card-title>
+</mat-card>
+
+<mat-card class="card">
+    <mat-card-title>
+        <button mat-raised-button class="center" color='primary' class="insertBtn" (click)='insertMovie()'>
+            Insert New Movie
+        </button>
+        <u>
+            <h2>Movie List</h2>
+        </u>
+    </mat-card-title>
+    <br><br>
+    <mat-card-content>
+        <table mat-table [dataSource]="movies" class="mat-elvation-z10">
+
+            <ng-container matColumnDef="movieID">
+                <th mat-header-cell *matHeaderCellDef>Index</th>
+                <td mat-cell *matCellDef="let element; let i=index">{{ i+1 }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="imagePath">
+                <th mat-header-cell *matHeaderCellDef>Cover</th>
+                <td mat-cell *matCellDef="let element"><img src="{{element.imagePath}}" alt=" movie image" width="200px"
+                        height="200px" /></td>
+            </ng-container>
+
+            <ng-container matColumnDef="movieName">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;">Title</th>
+                <td mat-cell *matCellDef="let element">{{ element.movieName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="movieDescription">
+                <th mat-header-cell *matHeaderCellDef style="width: 30%;">Description</th>
+                <td mat-cell *matCellDef="let element">{{ element.movieDescription }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="duration">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;">Duration</th>
+                <td mat-cell *matCellDef="let element">{{ element.duration }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="ticketPrice">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;">Ticket Price(RM)</th>
+                <td mat-cell *matCellDef="let element">{{ element.ticketPrice|number:'1.2-2'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;">Action</th>
+                <td mat-cell *matCellDef="let element">
+                    <br><button class="updateBtn" mat-raised-button color="primary"
+                        (click)='getMovieByID(element.movieID)'>Update</button><br><br>
+                    <button class="deleteBtn" mat-raised-button color="warn"
+                        (click)='deleteMovie(element.movieID)'>Delete</button><br><br>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,39 @@
+body{
+    background-color: black;
+    padding-bottom: 2500px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.toolbar{
+    background-color: #ffc400;
+}
+
+.linkStyle{
+    text-decoration: none;
+    color: black;
+}
+a+a{
+    margin-left: 15px;
+}
+#loginButton{
+    background-color: green;
+    color: white;
+}
+#registerButton{
+    color: white;
+}
+.footer{
+    font-size: small;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: black;
+}
+.bottom{
+    position: absolute;
+    bottom: -600px;
+}
+#logoutButton{
+    color: white;
+}

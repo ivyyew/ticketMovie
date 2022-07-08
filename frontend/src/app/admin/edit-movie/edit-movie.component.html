@@ -1,0 +1,48 @@
+<mat-card class="linkCard">
+    <mat-card-title>
+        <h3><a routerLink="/admin/movieList">Movie List</a>/Update ({{movie?.movieName}})</h3>
+    </mat-card-title>
+</mat-card>
+<div>
+    <mat-card class="cardSizePosition">
+        <mat-card-title>
+            <h2>Update</h2>
+        </mat-card-title>
+        <div class="updateMovieForm">
+            <form>
+                <div class="center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Movie Name</mat-label>
+                        <input matInput [formControl]="movieName" required>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Movie Description</mat-label>
+                        <textarea matInput [formControl]="movieDescription" required></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Duration</mat-label>
+                        <input matInput [formControl]="duration" required>
+                    </mat-form-field>
+                </div>
+                <div class="center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ticket Price</mat-label>
+                        <input matInput [formControl]="ticketPrice" required>
+                    </mat-form-field>
+                </div>
+
+                <br><br><br>
+                <div class="center">
+                    <button type="submit" mat-raised-button color="primary" class="updateBtn" (click)='onSubmit()'>
+                        Update
+                    </button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </mat-card>
+</div>
